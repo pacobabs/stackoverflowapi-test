@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {}
+
+@layer utilities {}
+
+@layer base {
+  body {
+    margin: 0;
+  }
+
+  html {
+    @apply font-roboto;
+    font-size: 80%;
+  }
+
+  @screen md {
+    html {
+      font-size: 84%;
+    }
+  }
+
+  @screen xl {
+    html {
+      font-size: 88%;
+    }
+  }
+
+  @screen lg {
+    html {
+      font-size: 90%;
+    }
+  }
+
+  @screen 2xl {
+    html {
+      font-size: 100%;
+    }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-dmSans;
+  }
+
+  a,
+  button {
+    @apply cursor-pointer font-dmSans;
+  }
+}
