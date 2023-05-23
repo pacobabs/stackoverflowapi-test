@@ -25,7 +25,7 @@ const Pagination = ({ hasMore, setLoaded }: Props) => {
   }
 
   return (
-    <div className="flex h-16 lg:h-12 font-inter">
+    <div className="flex h-24 md:h-16 lg:h-12 font-inter">
       <button
         className="px-4 bg-blue-300 disabled:bg-gray-400 text-gray-50"
         disabled={page === 1}

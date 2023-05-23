@@ -16,7 +16,7 @@ const UsersSkeleton = ({ loaded, setRetry }: Props) => {
 
   return (
     <>
-      <div className="h-16 text-center lg:h-12 font-inter">
+      <div className="h-24 text-center md:h-16 lg:h-12 font-inter">
         {!loaded ? (
           'Loading... Please wait while we fetch the items'
         ) : (

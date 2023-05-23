@@ -38,7 +38,9 @@ const UserView = ({ user }: Props) => {
   return (
     <div className="relative flex flex-col pb-6 overflow-hidden">
       <div
-        className={`flex items-center gap-4 px-2 py-4 ${user?.blocked ? 'bg-gray-300' : 'bg-white'}`}
+        className={`flex flex-col sm:flex-row items-center gap-4 px-2 py-6 ${
+          user?.blocked ? 'bg-gray-300' : 'bg-white'
+        }`}
         onClick={onExpanded}
       >
         <div className="w-32 h-32">
@@ -77,7 +79,7 @@ const UserView = ({ user }: Props) => {
               </div>
             </div>
             <button
-              className="px-4 py-1 mt-24 text-gray-900 bg-gray-300 rounded-md hover:bg-gray-200"
+              className="absolute px-4 py-1 mt-24 text-gray-900 bg-gray-300 rounded-md bottom-20 right-2 hover:bg-gray-200"
               onClick={onReset}
             >
               Unfollow
