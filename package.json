@@ -22,6 +22,10 @@
   },
   "homepage": "https://github.com/pacobabs/stackoverflowapi-test#readme",
   "dependencies": {
+    "@capacitor/android": "^5.0.4",
+    "@capacitor/cli": "^5.0.4",
+    "@capacitor/core": "^5.0.4",
+    "@capacitor/ios": "^5.0.4",
     "next": "^13.0.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
@@ -48,11 +52,11 @@
     "jest-localstorage-mock": "^2.4.22",
     "postcss": "^8.4.18",
     "prettier": "^2.7.1",
+    "react-reduce-hooks": "^1.1.2",
+    "reduce-devtools-extension": "^2.1.4",
     "tailwindcss": "^3.2.2",
     "ts-jest": "^29.0.3",
-    "typescript": "^4.8.4",
-    "react-reduce-hooks": "^1.1.2",
-    "reduce-devtools-extension": "^2.1.4"
+    "typescript": "^4.8.4"
   },
   "jest": {
     "testEnvironment": "jsdom",
