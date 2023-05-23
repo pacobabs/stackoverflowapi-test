@@ -3,6 +3,8 @@ export type User = {
   reputation: number
   profile_image: string
   display_name: string
+  followed?: boolean
+  blocked?: boolean
 }
 
 export type ApiResponse = {
