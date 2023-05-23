@@ -1,15 +1,28 @@
-import React from 'react'
+import React, { Dispatch, SetStateAction } from 'react'
 import { useDispatch } from 'react-reduce-hooks'
 import { setPage } from '@store/actions'
-import { usePage } from '@store/selectors'
+import { usePage, useUsers } from '@store/selectors'
+import { PAGE_SIZE } from '@services'
 
-const Pagination = ({ hasMore }: Props) => {
+const Pagination = ({ hasMore, setLoaded }: Props) => {
   const dispatch = useDispatch()
   const { page } = usePage()
+  const { users } = useUsers()
 
-  const onPreviousPage = () => dispatch(setPage(Math.max(1, page - 1)))
+  const onPreviousPage = () => {
+    const previousPage = Math.max(1, page - 1)
+    dispatch(setPage(previousPage))
+    window.scrollTo({ top: 0 })
+  }
 
-  const onNextPage = () => dispatch(setPage(page + 1))
+  const onNextPage = () => {
+    const nextPage = page + 1
+    // check if the page is already fetched
+    const isPageNotFetched = !users || nextPage * PAGE_SIZE > users.length
+    isPageNotFetched && setLoaded(false)
+    dispatch(setPage(nextPage))
+    window.scrollTo({ top: 0 })
+  }
 
   return (
     <div className="flex h-16 lg:h-12 font-inter">
@@ -37,6 +50,7 @@ const Pagination = ({ hasMore }: Props) => {
 
 type Props = {
   hasMore: boolean
+  setLoaded: Dispatch<SetStateAction<boolean>>
 }
 
 export default Pagination

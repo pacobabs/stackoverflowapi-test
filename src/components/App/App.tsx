@@ -8,7 +8,7 @@ import { PAGE_SIZE } from '@services'
 const App = () => {
   const { users } = useUsers()
   const { page } = usePage()
-  const { loaded, hasMore } = useFetchUsers(page)
+  const { loaded, hasMore, setLoaded } = useFetchUsers(page)
 
   // slice the users list to show visible users for the current page
   const startSlice = (page - 1) * PAGE_SIZE
@@ -19,7 +19,11 @@ const App = () => {
   return (
     <main className="flex justify-center w-full min-h-screen overflow-hidden bg-gray-100">
       <div className="relative flex flex-col w-full max-w-4xl gap-6 p-8 overflow-x-hidden overflow-y-auto">
-        {loaded && viewUsers ? <UsersList users={viewUsers} hasMore={hasMore} /> : <UsersSkeleton loaded={loaded} />}
+        {loaded && viewUsers?.length ? (
+          <UsersList users={viewUsers} hasMore={hasMore} setLoaded={setLoaded} />
+        ) : (
+          <UsersSkeleton loaded={loaded} />
+        )}
       </div>
     </main>
   )

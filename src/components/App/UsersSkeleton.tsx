@@ -13,7 +13,7 @@ const UsersSkeleton = ({ loaded }: Props) => {
 
   return (
     <>
-      <div className="h-8 text-center font-inter">
+      <div className="h-16 text-center lg:h-12 font-inter">
         {!loaded ? (
           'Loading... Please wait while we fetch the items'
         ) : (

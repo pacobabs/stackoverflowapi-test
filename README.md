@@ -28,25 +28,14 @@
     npm run test
     ```
 
-4.  **Build the app.**
+4.  **Build the app and export static site.**
 
     ```shell
     # build the app
     npm run build
     ```
 
-5.  **Export static site.**
-
-    Export mode.
-
-    ```shell
-     # build the app
-    npm run build
-    # export to out folder
-    npm run export
-    ```
-
-6.  **Run mobile version with capacitor.**
+5.  **Run mobile version with capacitor.**
 
     You need to first setup your environment first.
     https://capacitorjs.com/docs/getting-started/environment-setup
@@ -54,8 +43,6 @@
     ```shell
      # build the app
     npm run build
-    # export to out folder
-    npm run export
     # run locally with Android Studio
     npx cap open android
     # run locally with XCode

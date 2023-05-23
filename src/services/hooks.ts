@@ -12,7 +12,6 @@ export const useFetchUsers = (page: number) => {
 
   useEffect(() => {
     const fetchUsers = async () => {
-      setLoaded(false)
       try {
         // check if the page is already fetched
         const isPageNotFetched = !users || page * PAGE_SIZE > users.length
@@ -28,5 +27,5 @@ export const useFetchUsers = (page: number) => {
     fetchUsers()
   }, [page])
 
-  return { loaded, hasMore }
+  return { loaded, hasMore, setLoaded }
 }
