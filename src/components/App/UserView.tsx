@@ -56,14 +56,14 @@ const UserView = ({ user }: Props) => {
             <Skeleton />
           )}
         </div>
-        <div className="flex flex-col gap-8">
+        <div className="flex flex-col items-center gap-8 pb-8 sm:pb-0 sm:items-baseline">
           <div className="w-56 h-8 px-2 md:w-80">
             {' '}
-            {user ? <h1 className="text-xl font-bold">{user.display_name}</h1> : <Skeleton />}
+            {user ? <h1 className="text-xl font-bold text-center sm:text-left">{user.display_name}</h1> : <Skeleton />}
           </div>
           <div className="w-32 h-8 px-2 md:w-24">
             {user ? (
-              <h2>
+              <h2 className="text-center md:text-left">
                 reputation <span className="text-indigo-300 font-inter">{user.reputation}</span>
               </h2>
             ) : (
@@ -79,7 +79,7 @@ const UserView = ({ user }: Props) => {
               </div>
             </div>
             <button
-              className="absolute px-4 py-1 mt-24 text-gray-900 bg-gray-300 rounded-md bottom-20 right-2 hover:bg-gray-200"
+              className="absolute px-4 py-1 mt-24 text-gray-900 bg-gray-300 rounded-md bottom-14 right-2 hover:bg-gray-200"
               onClick={onReset}
             >
               Unfollow
