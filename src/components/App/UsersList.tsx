@@ -15,7 +15,7 @@ const UsersList = ({ users, hasMore }: Props) => {
 
   return (
     <>
-      <div className="flex h-8 font-inter">
+      <div className="flex h-16 lg:h-8 font-inter">
         <button
           className="px-4 bg-blue-300 disabled:bg-gray-400 text-gray-50"
           disabled={page === 1}
@@ -23,10 +23,9 @@ const UsersList = ({ users, hasMore }: Props) => {
         >
           Prev
         </button>
-        <div className="w-full text-center">
-          List of Stackoverflow users by reputation
-          <br />
-          Page {page}
+        <div className="flex flex-col w-full gap-2 text-center">
+          <p>List of Stackoverflow users by reputation</p>
+          <span>Page {page}</span>
         </div>
         <button
           className="px-4 ml-auto bg-blue-300 disabled:bg-gray-400 text-gray-50"

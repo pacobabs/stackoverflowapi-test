@@ -12,11 +12,17 @@ module.exports = {
         protocol: 'https',
         hostname: 'www.gravatar.com',
         port: '',
-        pathname: '/avatar/**'
+        pathname: '/**'
       },
       {
         protocol: 'https',
         hostname: 'i.stack.imgur.com',
+        port: '',
+        pathname: '/**'
+      },
+      {
+        protocol: 'https',
+        hostname: 'lh3.googleusercontent.com',
         port: '',
         pathname: '/**'
       }

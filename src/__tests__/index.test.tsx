@@ -10,14 +10,14 @@ describe('Index page', () => {
   it('renders error page when api request failed', async () => {
     ;(fetch as jest.Mock).mockImplementationOnce(() =>
       Promise.resolve({
-        json: () => Promise.resolve({ status: 401 })
+        json: () => Promise.resolve({ status: 400 })
       })
     )
     await act(async () => {
       render(<Index />)
     })
     await waitFor(() => {
-      screen.getByText('Sorry! we vould not fetch the items. Please try again')
+      screen.getByText('Sorry! we vould not fetch the items')
     })
   })
 

@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import React from 'react'
 import { usePage, useUsers } from '@store/selectors'
 import { useFetchUsers } from '@services/hooks'
 import UsersSkeleton from '@components/App/UsersSkeleton'

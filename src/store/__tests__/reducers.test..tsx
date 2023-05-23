@@ -23,7 +23,8 @@ describe('Reducers', () => {
         { payload: { user_id: 22656, followed: true }, type: ActionTypes.setUserFollowed }
       )
     ).toEqual({
-      users: usersMock.map((user) => (user.user_id === 22656 ? { ...user, user_id: 22656, followed: true } : user))
+      users: usersMock.map((user) => (user.user_id === 22656 ? { ...user, user_id: 22656, followed: true } : user)),
+      page: 1
     })
   })
   it('should setUserBlocked', async () => {
@@ -34,7 +35,8 @@ describe('Reducers', () => {
         { payload: { user_id: 22656, blocked: true }, type: ActionTypes.setUserBlocked }
       )
     ).toEqual({
-      users: usersMock.map((user) => (user.user_id === 22656 ? { ...user, user_id: 22656, blocked: true } : user))
+      users: usersMock.map((user) => (user.user_id === 22656 ? { ...user, user_id: 22656, blocked: true } : user)),
+      page: 1
     })
   })
   it('should setPage', async () => {

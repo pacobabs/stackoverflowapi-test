@@ -15,7 +15,7 @@ describe('Actions', () => {
   it('should setUserBlocked', async () => {
     expect(setUserBlocked(23445, true)).toEqual({
       payload: { user_id: 23445, blocked: true },
-      type: ActionTypes.setUserFollowed
+      type: ActionTypes.setUserBlocked
     })
   })
   it('should setPage', async () => {
