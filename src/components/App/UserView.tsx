@@ -30,8 +30,8 @@ const UserView = ({ user }: Props) => {
 
   const onReset = () => {
     if (!user) return
-    dispatch(setUserFollowed(user?.user_id, false))
-    dispatch(setUserBlocked(user?.user_id, false))
+    dispatch(setUserFollowed(user.user_id, false))
+    dispatch(setUserBlocked(user.user_id, false))
     setExpanded(false)
   }
 

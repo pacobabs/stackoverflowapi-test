@@ -27,11 +27,11 @@ type UsersPayload = {
   [ActionTypes.setUserBlocked]: { user_id: number; blocked: boolean }
 }
 
-type PaginationPayload = {
+type PagePayload = {
   [ActionTypes.setPage]: State['page']
 }
 
-export type Action = ActionType<UsersPayload & PaginationPayload>
+export type Action = ActionType<UsersPayload & PagePayload>
 
 // Utulity types
 
