@@ -3,16 +3,23 @@ import { usePage, useUsers } from '@store/selectors'
 import { useFetchUsers } from '@services/hooks'
 import UsersSkeleton from '@components/App/UsersSkeleton'
 import UsersList from '@components/App/UsersList'
+import { PAGE_SIZE } from '@services'
 
 const App = () => {
   const { users } = useUsers()
   const { page } = usePage()
   const { loaded, hasMore } = useFetchUsers(page)
 
+  // slice the users list to show visible users for the current page
+  const startSlice = (page - 1) * PAGE_SIZE
+  const endSlice = startSlice + PAGE_SIZE
+
+  const viewUsers = users?.slice(startSlice, endSlice)
+
   return (
-    <main className="flex items-center justify-center w-full min-h-screen overflow-hidden bg-gray-100">
+    <main className="flex justify-center w-full min-h-screen overflow-hidden bg-gray-100">
       <div className="relative flex flex-col w-full max-w-4xl gap-8 p-8 overflow-x-hidden overflow-y-auto">
-        {loaded && users ? <UsersList users={users} hasMore={hasMore} /> : <UsersSkeleton loaded={loaded} />}
+        {loaded && viewUsers ? <UsersList users={viewUsers} hasMore={hasMore} /> : <UsersSkeleton loaded={loaded} />}
       </div>
     </main>
   )

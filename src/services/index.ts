@@ -2,7 +2,7 @@ import { ApiResponse } from './types'
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL
 
-const PAGE_SIZE = 20
+export const PAGE_SIZE = 20
 
 export async function getUsers(page: number): Promise<ApiResponse | undefined> {
   const options = {

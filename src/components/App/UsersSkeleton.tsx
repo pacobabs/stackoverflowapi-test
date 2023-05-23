@@ -8,6 +8,7 @@ const UsersSkeleton = ({ loaded }: Props) => {
   const dispatch = useDispatch()
   const { page } = usePage()
 
+  // switch the page to trigger a refetch
   const onTryAgain = () => dispatch(setPage(page === 1 ? page + 1 : 1))
 
   return (

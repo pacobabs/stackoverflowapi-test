@@ -26,7 +26,7 @@ describe('Index page', () => {
       render(<Index />)
     })
     await waitFor(() => {
-      screen.getByText('List of Stackoverflow users by reputation')
+      screen.getAllByText('List of Stackoverflow users by reputation')
       screen.getByText('Jon Doe')
     })
   })
