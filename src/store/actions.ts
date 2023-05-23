@@ -14,3 +14,8 @@ export const setUserBlocked = (user_id: number, blocked: boolean): Action => ({
   type: _.setUserBlocked,
   payload: { user_id, blocked }
 })
+
+export const setPage = (page: State['page']): Action => ({
+  type: _.setPage,
+  payload: page
+})

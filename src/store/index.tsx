@@ -10,7 +10,8 @@ type Props = {
 }
 
 export const state: State = {
-  users: undefined
+  users: undefined,
+  page: 1
 }
 
 const AppProvider = ({ state, children }: Props) => {

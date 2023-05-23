@@ -3,19 +3,22 @@ import { User } from '@services/types'
 
 export type State = {
   users: User[] | undefined
+  page: number
 }
 
 // actions
 export enum ActionTypes {
   setUsers = 'users/set',
   setUserFollowed = 'users/followed',
-  setUserBlocked = 'users/blocked'
+  setUserBlocked = 'users/blocked',
+  setPage = 'page/set'
 }
 
 export type ActionCreators = {
   setUsers: (users: State['users']) => Action
   setUserFollowed: (user_id: number, followed: boolean) => Action
   setUserBlocked: (user_id: number, blocked: boolean) => Action
+  setPage: (page: State['page']) => Action
 }
 
 type UsersPayload = {
@@ -24,7 +27,11 @@ type UsersPayload = {
   [ActionTypes.setUserBlocked]: { user_id: number; blocked: boolean }
 }
 
-export type Action = ActionType<UsersPayload>
+type PaginationPayload = {
+  [ActionTypes.setPage]: State['page']
+}
+
+export type Action = ActionType<UsersPayload & PaginationPayload>
 
 // Utulity types
 

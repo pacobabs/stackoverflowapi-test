@@ -4,11 +4,11 @@
 
 1.  **Install dependencies.**
 
-    Navigate into your project directory and install it.
     Use the version of NodeJS 18+
+    Navigate into your project directory and install it.
 
     ```shell
-    # Install wtih npm
+    # Install with npm
     npm install
     ```
 

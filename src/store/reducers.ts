@@ -21,6 +21,9 @@ const reducer = (state: State, action: Action): State => {
         )
       }
     }
+    case _.setPage: {
+      return { ...state, page: action.payload }
+    }
 
     default:
       return state
