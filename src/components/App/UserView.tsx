@@ -10,25 +10,29 @@ const UserView = ({ user }: Props) => {
   const [expanded, setExpanded] = useState(false)
 
   const onExpanded = () => {
-    user && !user.followed && !user.blocked && setExpanded((expanded) => !expanded)
+    if (!user) return
+    !user.followed && !user.blocked && setExpanded((expanded) => !expanded)
   }
 
   const onSetFollowed = () => {
-    user && dispatch(setUserFollowed(user?.user_id, true))
-    user && dispatch(setUserBlocked(user?.user_id, false))
-    user && setExpanded(false)
+    if (!user) return
+    dispatch(setUserFollowed(user.user_id, true))
+    dispatch(setUserBlocked(user.user_id, false))
+    setExpanded(false)
   }
 
   const onSetBlocked = () => {
-    user && dispatch(setUserBlocked(user?.user_id, true))
-    user && dispatch(setUserFollowed(user?.user_id, false))
-    user && setExpanded(false)
+    if (!user) return
+    dispatch(setUserBlocked(user.user_id, true))
+    dispatch(setUserFollowed(user.user_id, false))
+    setExpanded(false)
   }
 
   const onReset = () => {
-    user && dispatch(setUserFollowed(user?.user_id, false))
-    user && dispatch(setUserBlocked(user?.user_id, false))
-    user && setExpanded(false)
+    if (!user) return
+    dispatch(setUserFollowed(user?.user_id, false))
+    dispatch(setUserBlocked(user?.user_id, false))
+    setExpanded(false)
   }
 
   return (
