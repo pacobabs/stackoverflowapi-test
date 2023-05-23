@@ -1,15 +1,18 @@
-import React from 'react'
+import React, { Dispatch, SetStateAction, useEffect } from 'react'
 import UserView from '@components/App/UserView'
-import { useDispatch } from 'react-reduce-hooks'
-import { setPage } from '@store/actions'
-import { usePage } from '@store/selectors'
 
-const UsersSkeleton = ({ loaded }: Props) => {
-  const dispatch = useDispatch()
-  const { page } = usePage()
+const UsersSkeleton = ({ loaded, setRetry }: Props) => {
+  // retry the request if failed
+  const onTryAgain = () => setRetry((retry) => !retry)
 
-  // switch the page to trigger a refetch
-  const onTryAgain = () => dispatch(setPage(page === 1 ? page + 1 : 1))
+  useEffect(() => {
+    // retry potential failed request when back online
+    window.addEventListener('online', onTryAgain)
+
+    return () => {
+      window.removeEventListener('online', onTryAgain)
+    }
+  }, [])
 
   return (
     <>
@@ -37,6 +40,7 @@ const UsersSkeleton = ({ loaded }: Props) => {
 
 type Props = {
   loaded: boolean
+  setRetry: Dispatch<SetStateAction<boolean>>
 }
 
 export default UsersSkeleton

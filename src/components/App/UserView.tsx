@@ -60,7 +60,6 @@ const UserView = ({ user }: Props) => {
             {user ? <h1 className="text-xl font-bold">{user.display_name}</h1> : <Skeleton />}
           </div>
           <div className="w-32 h-8 px-2 md:w-24">
-            {' '}
             {user ? (
               <h2>
                 reputation <span className="text-indigo-300 font-inter">{user.reputation}</span>

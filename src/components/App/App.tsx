@@ -8,7 +8,7 @@ import { PAGE_SIZE } from '@services'
 const App = () => {
   const { users } = useUsers()
   const { page } = usePage()
-  const { loaded, hasMore, setLoaded } = useFetchUsers(page)
+  const { loaded, hasMore, setLoaded, setRetry } = useFetchUsers(page)
 
   // slice the users list to show visible users for the current page
   const startSlice = (page - 1) * PAGE_SIZE
@@ -22,7 +22,7 @@ const App = () => {
         {loaded && viewUsers?.length ? (
           <UsersList users={viewUsers} hasMore={hasMore} setLoaded={setLoaded} />
         ) : (
-          <UsersSkeleton loaded={loaded} />
+          <UsersSkeleton loaded={loaded} setRetry={setRetry} />
         )}
       </div>
     </main>

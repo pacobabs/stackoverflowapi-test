@@ -8,6 +8,7 @@ export const useFetchUsers = (page: number) => {
   const dispatch = useDispatch()
   const { users } = useUsers()
   const [loaded, setLoaded] = useState(false)
+  const [retry, setRetry] = useState(false)
   const [hasMore, setHasmore] = useState(false)
 
   useEffect(() => {
@@ -25,7 +26,7 @@ export const useFetchUsers = (page: number) => {
       setLoaded(true)
     }
     fetchUsers()
-  }, [page])
+  }, [page, retry])
 
-  return { loaded, hasMore, setLoaded }
+  return { loaded, hasMore, setLoaded, setRetry }
 }
