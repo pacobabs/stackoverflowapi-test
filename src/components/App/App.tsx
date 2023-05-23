@@ -18,7 +18,7 @@ const App = () => {
 
   return (
     <main className="flex justify-center w-full min-h-screen overflow-hidden bg-gray-100">
-      <div className="relative flex flex-col w-full max-w-4xl gap-8 p-8 overflow-x-hidden overflow-y-auto">
+      <div className="relative flex flex-col w-full max-w-4xl gap-6 p-8 overflow-x-hidden overflow-y-auto">
         {loaded && viewUsers ? <UsersList users={viewUsers} hasMore={hasMore} /> : <UsersSkeleton loaded={loaded} />}
       </div>
     </main>

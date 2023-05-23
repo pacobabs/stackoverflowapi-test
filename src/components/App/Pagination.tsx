@@ -12,7 +12,7 @@ const Pagination = ({ hasMore }: Props) => {
   const onNextPage = () => dispatch(setPage(page + 1))
 
   return (
-    <div className="flex h-16 lg:h-8 font-inter">
+    <div className="flex h-16 lg:h-12 font-inter">
       <button
         className="px-4 bg-blue-300 disabled:bg-gray-400 text-gray-50"
         disabled={page === 1}
